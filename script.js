@@ -6,7 +6,7 @@
 //
 
 function getComputerChoice() {
-  const resultArr = ['Rock', 'Paper', 'Scissor']
+  const resultArr = ['Rock', 'Paper', 'Scissors']
   return resultArr[getRandom(3)]
 }
 
@@ -30,12 +30,15 @@ function playerChoice(input) {
 const playerRoll = 'Rock'
 
 function gameOn(computerSelection, playerSelection) {
-  console.log(playerSelection)
   console.log(computerSelection)
-  if (playerSelection === 'Rock' && computerSelection === 'Rock') {
+  console.log(playerSelection)
+  if (playerSelection === computerSelection) {
     return 'Draw! Play again!'
   }
-  return 'Continue'
+  if ((playerSelection === 'Rock' && computerSelection === 'Scissors') || (playerSelection === 'Paper' && computerSelection === 'Rock') || (playerSelection === 'Scissors' && computerSelection === 'Paper')) {
+    return 'Player 1 Wins!'
+  }
+  return 'Computer Wins!'
 }
 
 const computerRoll = getComputerChoice()
