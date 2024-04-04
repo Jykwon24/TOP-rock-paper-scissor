@@ -4,6 +4,9 @@
 // Create logic what will take the player input
 // Return that input, no matter the case user uses
 //
+let response = prompt()
+
+console.log(response)
 
 function getComputerChoice() {
   const resultArr = ['Rock', 'Paper', 'Scissors']
@@ -19,7 +22,6 @@ function playerChoice(input) {
     return 'Please enter a valid string'
   }
 
-  console.log(typeof input)
   if (input.toLowerCase() === 'rock' || input.toLowerCase() === 'paper' || input.toLowerCase() === 'scissors') {
     return input.charAt(0).toUpperCase() + input.toLowerCase().slice(1)
 
@@ -27,22 +29,34 @@ function playerChoice(input) {
   return 'Input must either be rock, paper or scissors'
 }
 
-const playerRoll = 'Rock'
+let playerScore = 0
+let computerScore = 0
 
 function gameOn(computerSelection, playerSelection) {
   console.log(computerSelection)
   console.log(playerSelection)
   if (playerSelection === computerSelection) {
-    return 'Draw! Play again!'
+    return console.log('Draw! Play again!')
   }
   if ((playerSelection === 'Rock' && computerSelection === 'Scissors') || (playerSelection === 'Paper' && computerSelection === 'Rock') || (playerSelection === 'Scissors' && computerSelection === 'Paper')) {
-    return 'Player 1 Wins!'
+    playerScore++
+    return console.log('Player wins!')
   }
-  return 'Computer Wins!'
+  computerScore++
+  return console.log('Computer Wins!')
 }
 
 const computerRoll = getComputerChoice()
-
 // console.log(getComputerChoice())
 // console.log(playerChoice('rock'))
-console.log(gameOn(getComputerChoice(), playerChoice('Rock')))
+// console.log(gameOn(getComputerChoice(), playerChoice('Rock')))
+
+function playRound() {
+  for (let i = 0; i < 5; i++) {
+    gameOn(getComputerChoice(), playerChoice(response))
+  }
+  console.log('Player Score: ', playerScore)
+  console.log('Computer Score: ', computerScore)
+}
+
+playRound()
