@@ -47,9 +47,6 @@ function gameOn(computerSelection, playerSelection) {
 }
 
 const computerRoll = getComputerChoice()
-// console.log(getComputerChoice())
-// console.log(playerChoice('rock'))
-// console.log(gameOn(getComputerChoice(), playerChoice('Rock')))
 
 function playRound() {
   for (let i = 0; i < 5; i++) {
