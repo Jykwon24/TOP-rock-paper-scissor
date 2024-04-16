@@ -15,8 +15,7 @@ rockButton.addEventListener('click', function (e) {
   const targetEvent = e.target.getAttribute('class')
   const currentTargetEvent = e.target.getAttribute('class')
   console.log('target:', targetEvent)
-  console.log('currentTarget:', currentTargetEvent)
-  gameOn(getComputerChoice(), e.target.getAttribute('class'))
+  playGame(getComputerChoice(), e.target.getAttribute('class'))
 })
 
 function getComputerChoice() {
@@ -43,7 +42,7 @@ function playerChoice(input) {
 let playerScore = 0
 let computerScore = 0
 
-function gameOn(computerSelection, playerSelection) {
+function playGame(computerSelection, playerSelection) {
   console.log(computerSelection)
   console.log(playerSelection)
   if (playerSelection === computerSelection) {
@@ -59,8 +58,8 @@ function gameOn(computerSelection, playerSelection) {
 
 const computerRoll = getComputerChoice()
 
-function playRound() {
-  gameOn(getComputerChoice(), playerChoice())
+function startRound() {
+  playGame(getComputerChoice(), playerChoice())
 
   console.log('Player Score: ', playerScore)
   console.log('Computer Score: ', computerScore)
