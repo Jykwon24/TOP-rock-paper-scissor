@@ -4,9 +4,20 @@
 // Create logic what will take the player input
 // Return that input, no matter the case user uses
 //
-let response = prompt()
+const mainBody = document.querySelector('.container')
+// console.log(mainBody)
 
-console.log(response)
+const rockButton = document.querySelector('.rock')
+const paperButton = document.querySelector('.paper')
+const scissorsButton = document.querySelector('.scissors')
+
+rockButton.addEventListener('click', function (e) {
+  const targetEvent = e.target.getAttribute('class')
+  const currentTargetEvent = e.target.getAttribute('class')
+  console.log('target:', targetEvent)
+  console.log('currentTarget:', currentTargetEvent)
+  gameOn(getComputerChoice(), e.target.getAttribute('class'))
+})
 
 function getComputerChoice() {
   const resultArr = ['Rock', 'Paper', 'Scissors']
@@ -49,11 +60,10 @@ function gameOn(computerSelection, playerSelection) {
 const computerRoll = getComputerChoice()
 
 function playRound() {
-  for (let i = 0; i < 5; i++) {
-    gameOn(getComputerChoice(), playerChoice(response))
-  }
+  gameOn(getComputerChoice(), playerChoice())
+
   console.log('Player Score: ', playerScore)
   console.log('Computer Score: ', computerScore)
 }
 
-playRound()
+// playRound()
