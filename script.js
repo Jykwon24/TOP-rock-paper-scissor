@@ -6,16 +6,30 @@
 //
 const mainBody = document.querySelector('.container')
 // console.log(mainBody)
+const btnContainer = document.querySelector('.button-container')
 
 const rockButton = document.querySelector('.rock')
 const paperButton = document.querySelector('.paper')
 const scissorsButton = document.querySelector('.scissors')
 
-rockButton.addEventListener('click', function (e) {
-  const targetEvent = e.target.getAttribute('class')
-  const currentTargetEvent = e.target.getAttribute('class')
-  console.log('target:', targetEvent)
-  playGame(getComputerChoice(), e.target.getAttribute('class'))
+btnContainer.addEventListener('click', function (e) {
+  let targetEvent = e.target.getAttribute('class')
+  let currentTargetEvent = e.currentTarget.getAttribute('class')
+  // console.log('target:', targetEvent)
+  // console.log('currentTarget:', currentTargetEvent)
+
+  switch (targetEvent) {
+    case 'rock':
+      console.log(`${targetEvent} was clicked`)
+      break;
+    case 'paper':
+      console.log(`${targetEvent} was clicked`)
+      break;
+    case 'scissors':
+      console.log(`${targetEvent} was clicked`)
+      break;
+  }
+  // playGame(getComputerChoice(), e.target.getAttribute('class'))
 })
 
 function getComputerChoice() {
