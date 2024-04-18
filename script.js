@@ -60,8 +60,6 @@ function playGame(computerSelection, playerSelection) {
   updateScore()
 }
 
-
-
 function updateMessage(playerChoice, computerChoice, roundWinner) {
   switch (roundWinner) {
     case 'player':
@@ -74,6 +72,13 @@ function updateMessage(playerChoice, computerChoice, roundWinner) {
       roundResult.textContent = "It's a draw, play again!"
       break;
   }
+
+  if (playerScore === 5) {
+    roundResult.textContent = "You won!"
+  } else if (computerScore === 5) {
+    roundResult.textContent = "You lost..."
+  }
+
   console.log('player choice in update message:', playerChoice)
   console.log('computer choice in update message:', computerChoice)
   console.log('round winner in update message:', roundWinner)
