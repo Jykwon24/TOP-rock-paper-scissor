@@ -11,6 +11,7 @@ let roundWinner = ''
 
 console.log('playerScore:', playerScore)
 
+
 const mainBody = document.querySelector('.container')
 const btnContainer = document.querySelector('.button-container')
 
@@ -20,6 +21,7 @@ const scissorsButton = document.querySelector('.scissors')
 const roundResult = document.querySelector('.round-result')
 const playerScore2 = document.querySelector('.player-score')
 const computerScore2 = document.querySelector('.computer-score')
+const resetButton = document.querySelector('.replay')
 
 
 btnContainer.addEventListener('click', handleClick)
@@ -99,11 +101,17 @@ function capitalizeLetter(input) {
   return input.charAt(0).toUpperCase() + input.toLowerCase().slice(1)
 }
 
+function showResetBtn() {
+  rockButton.remove()
+  scissorsButton.remove()
+  paperButton.remove()
+  resetButton.classList.remove('hidden')
+}
+
 function handleClick(e) {
   let targetEvent = e.target.getAttribute('class')
   let currentTargetEvent = e.currentTarget.getAttribute('class')
   // console.log(targetEvent)
-
   switch (targetEvent) {
     case 'rock':
       console.log(`${targetEvent} was clicked`)
@@ -119,6 +127,9 @@ function handleClick(e) {
       break;
   }
 
+  if (playerScore === 5 || computerScore === 5) {
+    showResetBtn()
+  }
   console.log('Player Score:', playerScore)
   console.log('Computer Score:', computerScore)
   console.log('Round Winner:', roundWinner)
