@@ -128,6 +128,7 @@ function handleClick(e) {
     case 'replay':
       console.log(`${targetEvent} was clicked`)
       resetGame()
+
       break;
   }
 
@@ -146,4 +147,8 @@ function resetGame() {
   playerScore2.textContent = 0
   computerScore2.textContent = 0
   resetButton.classList.add("hidden")
+  rockButton.classList.remove('hidden')
+  scissorsButton.classList.remove('hidden')
+  paperButton.classList.remove('hidden')
+  roundResult.textContent = "Let's Play!"
 }
