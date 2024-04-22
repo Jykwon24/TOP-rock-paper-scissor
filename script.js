@@ -102,9 +102,9 @@ function capitalizeLetter(input) {
 }
 
 function showResetBtn() {
-  rockButton.remove()
-  scissorsButton.remove()
-  paperButton.remove()
+  rockButton.classList.add('hidden')
+  scissorsButton.classList.add('hidden')
+  paperButton.classList.add('hidden')
   resetButton.classList.remove('hidden')
 }
 
@@ -125,6 +125,10 @@ function handleClick(e) {
       console.log(`${targetEvent} was clicked`)
       playGame(getComputerChoice(), targetEvent)
       break;
+    case 'replay':
+      console.log(`${targetEvent} was clicked`)
+      resetGame()
+      break;
   }
 
   if (playerScore === 5 || computerScore === 5) {
@@ -134,4 +138,12 @@ function handleClick(e) {
   console.log('Computer Score:', computerScore)
   console.log('Round Winner:', roundWinner)
 
+}
+
+function resetGame() {
+  playerScore = 0
+  computerScore = 0
+  playerScore2.textContent = 0
+  computerScore2.textContent = 0
+  resetButton.classList.add("hidden")
 }
